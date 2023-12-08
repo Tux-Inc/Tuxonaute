@@ -1,0 +1,6 @@
+#Folders
+.idea
+.vscode
+
+#Files
+.env
