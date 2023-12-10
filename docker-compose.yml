@@ -32,13 +32,22 @@ services:
     ports:
       - "3306:3306"
     environment:
-      MARIADB_ROOT_PASSWORD: dbpass
+      MYSQL_DATABASE: tuxaunote_db
+      MYSQL_USER: tuxaunote
+      MYSQL_PASSWORD: password
+      MYSQL_ROOT_PASSWORD: root_password
+    networks:
+      - tuxaunote-network
+
   # Adminer
   adminer:
     image: adminer
     restart: always
     ports:
       - "8081:8080"
+    networks:
+      - tuxaunote-network
+
   # Nest API
   api:
     container_name: tuxaunote-api
