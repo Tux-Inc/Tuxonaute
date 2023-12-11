@@ -25,25 +25,38 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 THE SOFTWARE.
 */
 
-import { Column, Entity, PrimaryColumn } from "typeorm";
+import {
+    Column,
+    CreateDateColumn,
+    Entity,
+    PrimaryGeneratedColumn,
+    UpdateDateColumn,
+} from "typeorm";
 
 @Entity()
 export class Auth {
-    @PrimaryColumn()
+    @PrimaryGeneratedColumn()
     id: number;
 
     @Column()
     name: string;
 
-    @Column()
+    @Column({ unique: true })
     email: string;
 
-    @Column()
+    @Column({ select: false })
     password: string;
 
-    @Column()
+    @CreateDateColumn({
+        type: "timestamp",
+        default: () => "CURRENT_TIMESTAMP(6)",
+    })
     created_at: Date;
 
-    @Column()
+    @UpdateDateColumn({
+        type: "timestamp",
+        default: () => "CURRENT_TIMESTAMP(6)",
+        onUpdate: "CURRENT_TIMESTAMP(6)",
+    })
     updated_at: Date;
 }

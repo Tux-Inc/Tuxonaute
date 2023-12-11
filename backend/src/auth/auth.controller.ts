@@ -61,10 +61,11 @@ export class AuthController {
 
     @Patch(":id")
     update(@Param("id") id: string, @Body() account: Auth) {
+        account.updated_at = new Date();
         return this.authService.update(+id, account);
     }
 
-    @Delete(":id")
+    @Delete("/sign-rm/:id")
     remove(@Param("id") id: string) {
         return this.authService.deleteOneAuthById(id);
     }
