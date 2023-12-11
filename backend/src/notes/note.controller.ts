@@ -35,36 +35,89 @@ import {
 } from "@nestjs/common";
 import { Note } from "./note.entity";
 import { NotesService } from "./note.service";
+import {
+    ApiBadRequestResponse,
+    ApiConflictResponse,
+    ApiCreatedResponse,
+} from "@nestjs/swagger";
 
 @Controller("notes")
 export class NotesController {
     constructor(private readonly notesService: NotesService) {}
 
+    @ApiCreatedResponse({
+        type: Note,
+        description: "The record has been successfully created.",
+    })
+    @ApiConflictResponse({ description: "The record already exists." })
+    @ApiBadRequestResponse({
+        description: "Something is invalid on the request body.",
+    })
     @Get()
     async getAllNotes(): Promise<Note[]> {
         return await this.notesService.getAllNotes();
     }
 
+    @ApiCreatedResponse({
+        type: Note,
+        description: "The record has been successfully created.",
+    })
+    @ApiConflictResponse({ description: "The record already exists." })
+    @ApiBadRequestResponse({
+        description: "Something is invalid on the request body.",
+    })
     @Get(":id")
     async findOne(@Param("id") id: number): Promise<Note> {
         return await this.notesService.findOne(id);
     }
 
+    @ApiCreatedResponse({
+        type: Note,
+        description: "The record has been successfully created.",
+    })
+    @ApiConflictResponse({ description: "The record already exists." })
+    @ApiBadRequestResponse({
+        description: "Something is invalid on the request body.",
+    })
     @Post()
     async createNote(@Body() note: Note): Promise<void> {
         await this.notesService.createNote(note);
     }
 
+    @ApiCreatedResponse({
+        type: Note,
+        description: "The record has been successfully created.",
+    })
+    @ApiConflictResponse({ description: "The record already exists." })
+    @ApiBadRequestResponse({
+        description: "Something is invalid on the request body.",
+    })
     @Delete("/delete/:id")
     async deleteOneNoteById(@Param("id") id: string): Promise<void> {
         await this.notesService.deleteOneNoteById(id);
     }
 
+    @ApiCreatedResponse({
+        type: Note,
+        description: "The record has been successfully created.",
+    })
+    @ApiConflictResponse({ description: "The record already exists." })
+    @ApiBadRequestResponse({
+        description: "Something is invalid on the request body.",
+    })
     @Delete("")
     async deleteAllNotes(): Promise<void> {
         await this.notesService.deleteAllNotes();
     }
 
+    @ApiCreatedResponse({
+        type: Note,
+        description: "The record has been successfully created.",
+    })
+    @ApiConflictResponse({ description: "The record already exists." })
+    @ApiBadRequestResponse({
+        description: "Something is invalid on the request body.",
+    })
     @Put(":id")
     async editOneNoteById(
         @Param("id") id: number,

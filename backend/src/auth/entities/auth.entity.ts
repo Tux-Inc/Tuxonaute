@@ -25,6 +25,7 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 THE SOFTWARE.
 */
 
+import { ApiProperty } from "@nestjs/swagger";
 import {
     Column,
     CreateDateColumn,
@@ -35,24 +36,30 @@ import {
 
 @Entity()
 export class Auth {
+    @ApiProperty()
     @PrimaryGeneratedColumn()
     id: number;
 
+    @ApiProperty()
     @Column()
     name: string;
 
+    @ApiProperty()
     @Column({ unique: true })
     email: string;
 
+    @ApiProperty()
     @Column({ select: false })
     password: string;
 
+    @ApiProperty()
     @CreateDateColumn({
         type: "timestamp",
         default: () => "CURRENT_TIMESTAMP(6)",
     })
     created_at: Date;
 
+    @ApiProperty()
     @UpdateDateColumn({
         type: "timestamp",
         default: () => "CURRENT_TIMESTAMP(6)",

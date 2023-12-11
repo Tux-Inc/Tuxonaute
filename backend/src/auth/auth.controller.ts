@@ -36,21 +36,50 @@ import {
 } from "@nestjs/common";
 import { AuthService } from "./auth.service";
 import { Auth } from "./entities/auth.entity";
+import {
+    ApiBadRequestResponse,
+    ApiConflictResponse,
+    ApiCreatedResponse,
+} from "@nestjs/swagger";
 
 @Controller("auth")
 export class AuthController {
     constructor(private readonly authService: AuthService) {}
 
+    @ApiCreatedResponse({
+        type: Auth,
+        description: "The record has been successfully created.",
+    })
+    @ApiConflictResponse({ description: "The record already exists." })
+    @ApiBadRequestResponse({
+        description: "Something is invalid on the request body.",
+    })
     @Post("/sign-up")
     async createAuth(@Body() account: Auth) {
         return await this.authService.create(account);
     }
 
+    @ApiCreatedResponse({
+        type: Auth,
+        description: "The record has been successfully created.",
+    })
+    @ApiConflictResponse({ description: "The record already exists." })
+    @ApiBadRequestResponse({
+        description: "Something is invalid on the request body.",
+    })
     @Get()
     findAll() {
         return this.authService.getAllAccounts();
     }
 
+    @ApiCreatedResponse({
+        type: Auth,
+        description: "The record has been successfully created.",
+    })
+    @ApiConflictResponse({ description: "The record already exists." })
+    @ApiBadRequestResponse({
+        description: "Something is invalid on the request body.",
+    })
     @Post("/sign-in")
     findOne(
         @Param("email") email: string,
@@ -59,12 +88,28 @@ export class AuthController {
         return this.authService.findOne(email, password);
     }
 
+    @ApiCreatedResponse({
+        type: Auth,
+        description: "The record has been successfully created.",
+    })
+    @ApiConflictResponse({ description: "The record already exists." })
+    @ApiBadRequestResponse({
+        description: "Something is invalid on the request body.",
+    })
     @Patch(":id")
     update(@Param("id") id: string, @Body() account: Auth) {
         account.updated_at = new Date();
         return this.authService.update(+id, account);
     }
 
+    @ApiCreatedResponse({
+        type: Auth,
+        description: "The record has been successfully created.",
+    })
+    @ApiConflictResponse({ description: "The record already exists." })
+    @ApiBadRequestResponse({
+        description: "Something is invalid on the request body.",
+    })
     @Delete("/sign-rm/:id")
     remove(@Param("id") id: string) {
         return this.authService.deleteOneAuthById(id);

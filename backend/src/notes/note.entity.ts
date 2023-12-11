@@ -24,6 +24,7 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 THE SOFTWARE.
 */
 
+import { ApiProperty } from "@nestjs/swagger";
 import {
     BaseEntity,
     Column,
@@ -35,21 +36,26 @@ import {
 
 @Entity()
 export class Note extends BaseEntity {
+    @ApiProperty()
     @PrimaryGeneratedColumn()
     id: number;
 
+    @ApiProperty()
     @Column()
     title: string;
 
+    @ApiProperty()
     @Column()
     description: string;
 
+    @ApiProperty()
     @CreateDateColumn({
         type: "timestamp",
         default: () => "CURRENT_TIMESTAMP(6)",
     })
     created_at: Date;
 
+    @ApiProperty()
     @UpdateDateColumn({
         type: "timestamp",
         default: () => "CURRENT_TIMESTAMP(6)",
