@@ -47,3 +47,7 @@ TypeScript est un sur-ensemble typé de JavaScript qui se compile en JavaScript 
 Swagger est un outil qui permet de concevoir, construire et documenter des API de manière efficace. Il fournit une interface conviviale pour décrire les différentes fonctionnalités d'une API, telles que les endpoints, les paramètres, les réponses attendues, etc.
 
 Avec Swagger, les développeurs peuvent créer une documentation interactive et dynamique pour leur API, ce qui facilite grandement la compréhension et l'utilisation de l'API par d'autres développeurs. Cette documentation peut être générée automatiquement à partir du code source de l'API, ce qui permet de maintenir la documentation à jour en même temps que le code.
+
+### NuxtJS
+
+NuxtJS est un framework pour créer des applications web Node.js efficaces et évolutives. Il utilise JavaScript moderne, est construit avec TypeScript et combine des éléments de POO (Programmation Orientée Objet), FP (Programmation Fonctionnelle) et FRP (Programmation Réactive Fonctionnelle).

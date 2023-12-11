@@ -57,3 +57,11 @@ yarn build
 cd frontend
 yarn build
 ```
+
+## Urls
+
+- Backend: http://localhost:3000
+- Swagger: http://localhost:3000/api/inventory/
+
+- Frontend: http://localhost:8080
+- Adminer: http://localhost:8081
