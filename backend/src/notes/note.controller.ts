@@ -55,12 +55,12 @@ export class NotesController {
         await this.notesService.createNote(note);
     }
 
-    @Delete(":id")
+    @Delete("/delete/:id")
     async deleteOneNoteById(@Param("id") id: string): Promise<void> {
         await this.notesService.deleteOneNoteById(id);
     }
 
-    @Delete()
+    @Delete("")
     async deleteAllNotes(): Promise<void> {
         await this.notesService.deleteAllNotes();
     }

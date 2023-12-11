@@ -24,7 +24,14 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 THE SOFTWARE.
 */
 
-import { BaseEntity, Column, Entity, PrimaryGeneratedColumn } from "typeorm";
+import {
+    BaseEntity,
+    Column,
+    CreateDateColumn,
+    Entity,
+    PrimaryGeneratedColumn,
+    UpdateDateColumn,
+} from "typeorm";
 
 @Entity()
 export class Note extends BaseEntity {
@@ -37,9 +44,16 @@ export class Note extends BaseEntity {
     @Column()
     description: string;
 
-    @Column()
+    @CreateDateColumn({
+        type: "timestamp",
+        default: () => "CURRENT_TIMESTAMP(6)",
+    })
     created_at: Date;
 
-    @Column()
+    @UpdateDateColumn({
+        type: "timestamp",
+        default: () => "CURRENT_TIMESTAMP(6)",
+        onUpdate: "CURRENT_TIMESTAMP(6)",
+    })
     updated_at: Date;
 }
