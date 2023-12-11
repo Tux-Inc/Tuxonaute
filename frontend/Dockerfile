@@ -40,7 +40,6 @@ COPY . .
 # Build app
 RUN npm run generate
 
-
 # Production stage
 FROM nginx:latest AS production-stage
 

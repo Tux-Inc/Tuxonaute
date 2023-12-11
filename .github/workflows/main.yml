@@ -83,5 +83,5 @@ jobs:
           tags: |
             ghcr.io/tux-inc/tuxaunote:latest
             ghcr.io/tux-inc/tuxaunote:${{ github.sha }}
-            cache-from: type=gha
-            cache-to: type=gha,mode=max
+          cache-from: type=gha
+          cache-to: type=gha,mode=max
