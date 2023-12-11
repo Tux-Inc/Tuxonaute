@@ -1,8 +1,9 @@
 /*
-File Name: note.entity.ts
+File Name: auth.entity.ts
 Author: Alexandre Kévin De Freitas Martins
 Creation Date: 2023
-Description: This file is the entity of the note.
+Description: Entity for the auth module
+
 Copyright (c) 2023 Tux Inc.
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -24,18 +25,21 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 THE SOFTWARE.
 */
 
-import { BaseEntity, Column, Entity, PrimaryGeneratedColumn } from "typeorm";
+import { Column, Entity, PrimaryColumn } from "typeorm";
 
 @Entity()
-export class Note extends BaseEntity {
-    @PrimaryGeneratedColumn()
+export class Auth {
+    @PrimaryColumn()
     id: number;
 
     @Column()
-    title: string;
+    name: string;
 
     @Column()
-    description: string;
+    email: string;
+
+    @Column()
+    password: string;
 
     @Column()
     created_at: Date;

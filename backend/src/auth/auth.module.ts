@@ -1,8 +1,8 @@
 /*
-File Name: note.entity.ts
+File Name: auth.module.ts
 Author: Alexandre Kévin De Freitas Martins
 Creation Date: 2023
-Description: This file is the entity of the note.
+Description: This file is the entity of the auth.
 Copyright (c) 2023 Tux Inc.
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -24,22 +24,15 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 THE SOFTWARE.
 */
 
-import { BaseEntity, Column, Entity, PrimaryGeneratedColumn } from "typeorm";
+import { Module } from "@nestjs/common";
+import { AuthService } from "./auth.service";
+import { Auth } from "./entities/auth.entity";
+import { TypeOrmModule } from "@nestjs/typeorm";
+import { AuthController } from "./auth.controller";
 
-@Entity()
-export class Note extends BaseEntity {
-    @PrimaryGeneratedColumn()
-    id: number;
-
-    @Column()
-    title: string;
-
-    @Column()
-    description: string;
-
-    @Column()
-    created_at: Date;
-
-    @Column()
-    updated_at: Date;
-}
+@Module({
+    imports: [TypeOrmModule.forFeature([Auth])],
+    providers: [AuthService],
+    controllers: [AuthController],
+})
+export class AuthModule {}

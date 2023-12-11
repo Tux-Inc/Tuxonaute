@@ -1,8 +1,9 @@
 /*
-File Name: note.entity.ts
+File Name: auth.controller.ts
 Author: Alexandre Kévin De Freitas Martins
 Creation Date: 2023
-Description: This file is the entity of the note.
+Description: This file is the controller of the auth.
+
 Copyright (c) 2023 Tux Inc.
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -24,22 +25,47 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 THE SOFTWARE.
 */
 
-import { BaseEntity, Column, Entity, PrimaryGeneratedColumn } from "typeorm";
+import {
+    Body,
+    Controller,
+    Get,
+    Param,
+    Patch,
+    Post,
+    Delete,
+} from "@nestjs/common";
+import { AuthService } from "./auth.service";
+import { Auth } from "./entities/auth.entity";
 
-@Entity()
-export class Note extends BaseEntity {
-    @PrimaryGeneratedColumn()
-    id: number;
+@Controller("auth")
+export class AuthController {
+    constructor(private readonly authService: AuthService) {}
 
-    @Column()
-    title: string;
+    @Post("/sign-up")
+    async createAuth(@Body() account: Auth) {
+        return await this.authService.create(account);
+    }
 
-    @Column()
-    description: string;
+    @Get()
+    findAll() {
+        return this.authService.getAllAccounts();
+    }
 
-    @Column()
-    created_at: Date;
+    @Post("/sign-in")
+    findOne(
+        @Param("email") email: string,
+        @Param("password") password: string,
+    ) {
+        return this.authService.findOne(email, password);
+    }
 
-    @Column()
-    updated_at: Date;
+    @Patch(":id")
+    update(@Param("id") id: string, @Body() account: Auth) {
+        return this.authService.update(+id, account);
+    }
+
+    @Delete(":id")
+    remove(@Param("id") id: string) {
+        return this.authService.deleteOneAuthById(id);
+    }
 }

@@ -1,8 +1,8 @@
 /*
-File Name: note.entity.ts
+File Name: auth.service.ts
 Author: Alexandre Kévin De Freitas Martins
 Creation Date: 2023
-Description: This file is the entity of the note.
+Description: This file is the service of the auth.
 Copyright (c) 2023 Tux Inc.
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -24,22 +24,34 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 THE SOFTWARE.
 */
 
-import { BaseEntity, Column, Entity, PrimaryGeneratedColumn } from "typeorm";
+import { Repository } from "typeorm";
+import { Injectable } from "@nestjs/common";
+import { Auth } from "./entities/auth.entity";
+import { InjectRepository } from "@nestjs/typeorm";
 
-@Entity()
-export class Note extends BaseEntity {
-    @PrimaryGeneratedColumn()
-    id: number;
+@Injectable()
+export class AuthService {
+    constructor(
+        @InjectRepository(Auth) private authRepository: Repository<Auth>,
+    ) {}
 
-    @Column()
-    title: string;
+    async create(account: Auth) {
+        await this.authRepository.save(account);
+    }
 
-    @Column()
-    description: string;
+    async getAllAccounts(): Promise<Auth[]> {
+        return await this.authRepository.find();
+    }
 
-    @Column()
-    created_at: Date;
+    async findOne(email: string, password: string) {
+        return await this.authRepository.findOneBy({ email, password });
+    }
 
-    @Column()
-    updated_at: Date;
+    async update(id: number, account: Auth) {
+        await this.authRepository.update(id, account);
+    }
+
+    async deleteOneAuthById(id: string): Promise<void> {
+        await this.authRepository.delete(id);
+    }
 }
