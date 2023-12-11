@@ -76,13 +76,13 @@ const items = [
         {
             label: "Documentation",
             icon: "i-heroicons-book-open",
-            to: "https://github.com/tux-inc/Tuxify/wiki",
+            to: "https://github.com/tux-inc/Tuxonaute/wiki",
             target: "_blank",
         },
         {
             label: "Changelog",
             icon: "i-heroicons-megaphone",
-            to: "https://github.com/tux-inc/Tuxify/releases",
+            to: "https://github.com/tux-inc/Tuxonaute/releases",
             target: "_blank",
         },
         {
