@@ -1,7 +1,7 @@
 # File Name: docker-compose.yml
 # Author: Alexandre Kévin De Freitas Martins
 # Creation Date: 2023
-# Description: Main CI/CD file for the Tuxaunote project
+# Description: Main CI/CD file for the Tuxonaute project
 # Copyright (c) 2023 Tux Inc.
 #
 # Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -52,8 +52,8 @@
 #          context: "./backend/gateway"
 #          push: true
 #          tags: |
-#            ghcr.io/tux-inc/tuxify-api-gateway:latest
-#            ghcr.io/tux-inc/tuxify-api-gateway:${{ github.sha }}
+#            ghcr.io/tux-inc/tuxaunote-api-gateway:latest
+#            ghcr.io/tux-inc/tuxaunote-api-gateway:${{ github.sha }}
 #          cache-from: type=gha
 #          cache-to: type=gha,mode=max
 #  build_frontend:
@@ -79,7 +79,7 @@
 #          context: "./frontend"
 #          push: true
 #          tags: |
-#            ghcr.io/tux-inc/tuxify:latest
-#            ghcr.io/tux-inc/tuxify:${{ github.sha }}
+#            ghcr.io/tux-inc/tuxaunote:latest
+#            ghcr.io/tux-inc/tuxaunote:${{ github.sha }}
 #          cache-from: type=gha
 #          cache-to: type=gha,mode=max

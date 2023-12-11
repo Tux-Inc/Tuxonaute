@@ -1,5 +1,5 @@
 # File Name: Dockerfile
-# Author: Gwenaël Hubler, Stephane Fievez, Roman Lopes, Alexandre Kévin De Freitas Martins, Bouna Diallo
+# Author: Alexandre Kévin De Freitas Martins
 # Creation Date: 2023
 # Description: Dockerfile for the frontend of the application
 #
