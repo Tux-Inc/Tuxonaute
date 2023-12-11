@@ -1,7 +1,7 @@
 # File Name: docker-compose.yml
 # Author: Alexandre Kévin De Freitas Martins
 # Creation Date: 2023
-# Description: Docker compose file for the Tuxaunote project
+# Description: Docker compose file for the Tuxonaute project
 # Copyright (c) 2023 Tux Inc.
 #
 # Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -32,12 +32,12 @@ services:
     ports:
       - "3306:3306"
     environment:
-      MYSQL_DATABASE: tuxaunote_db
-      MYSQL_USER: tuxaunote
+      MYSQL_DATABASE: tuxonaute_db
+      MYSQL_USER: tuxonaute
       MYSQL_PASSWORD: password
       MYSQL_ROOT_PASSWORD: root_password
     networks:
-      - tuxaunote-network
+      - tuxonaute-network
 
   # Adminer
   adminer:
@@ -46,11 +46,11 @@ services:
     ports:
       - "8081:8080"
     networks:
-      - tuxaunote-network
+      - tuxonaute-network
 
   # Nest API
   api:
-    container_name: tuxaunote-api
+    container_name: tuxonaute-api
     image: node:latest
     restart: always
     command: yarn start:dev
@@ -63,15 +63,15 @@ services:
     depends_on:
       - db
     networks:
-      - tuxaunote-network
+      - tuxonaute-network
     env_file:
       - .env
   # Nuxt Frontend
   frontend:
-    container_name: tuxaunote-frontend
-    image: oven/bun:latest
+    container_name: tuxonaute-frontend
+    image: node:latest
     restart: always
-    command: bun run dev
+    command: yarn dev
     working_dir: /usr/src/app
     ports:
       - "8080:8080"
@@ -80,12 +80,12 @@ services:
       - ./frontend:/usr/src/app
       - ./frontend/node_modules:/usr/src/app/node_modules
     networks:
-      - tuxaunote-network
+      - tuxonaute-network
     env_file:
       - .env
 
 networks:
-  tuxaunote-network:
+  tuxonaute-network:
     driver: bridge
 
 volumes:
