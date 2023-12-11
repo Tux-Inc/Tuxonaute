@@ -94,7 +94,7 @@ for (const locale of availableLocales.value) {
                 <svg
                     class="h-8 fill-primary dark:fill-base-light"
                     viewBox="0 0 600 782"
-                    aria-label="TuxifyLogo"
+                    aria-label="TuxonauteLogo"
                     xmlns="http://www.w3.org/2000/svg"
                 >
                     <path
@@ -179,7 +179,7 @@ for (const locale of availableLocales.value) {
                     color="gray"
                     icon="i-heroicons-book-open"
                     size="xl"
-                    to="https://github.com/tux-inc/Tuxify/releases"
+                    to="https://github.com/tux-inc/Tuxonaute/releases"
                     variant="ghost"
                     @click="emit('setOpened')"
                 />
@@ -189,7 +189,7 @@ for (const locale of availableLocales.value) {
                     color="gray"
                     icon="i-heroicons-information-circle"
                     size="xl"
-                    to="https://github.com/tux-inc/Tuxify/wiki"
+                    to="https://github.com/tux-inc/Tuxonaute/wiki"
                     variant="ghost"
                     @click="emit('setOpened')"
                 />
