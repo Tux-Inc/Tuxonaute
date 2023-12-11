@@ -87,9 +87,6 @@ const { isMobile } = useDevice();
         <div>
             <div class="flex flex-col gap-4 mt-10">
                 <ProfileCard :display-title="true" />
-                <AccountSettings />
-                <DebitCard />
-                <UserPreferences />
             </div>
             <div class="mt-10 flex items-center justify-between">
                 <UButton type="button" label="Cancel" />

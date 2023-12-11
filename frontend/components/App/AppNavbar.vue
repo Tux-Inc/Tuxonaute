@@ -128,7 +128,11 @@ function getUserAlt() {
             class="flex items-center justify-between gap-3 h-[--header-height] px-6"
         >
             <div class="flex items-center justify-start gap-4">
-                <NuxtLink to="/app" aria-label="Go back to home page">
+                <NuxtLink
+                    to="/app"
+                    aria-label="Go back to home page"
+                    class="flex items-center gap-2"
+                >
                     <img
                         src="/landing/icons/logo.png"
                         alt="Tuxonaute Logo"

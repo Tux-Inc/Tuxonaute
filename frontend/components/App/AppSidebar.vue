@@ -30,6 +30,8 @@ import { useI18n } from "vue-i18n";
 
 const i18n = useI18n();
 const { $event } = useNuxtApp();
+
+const sendEvent = (event: string) => $event(event);
 </script>
 
 <template>
@@ -43,6 +45,7 @@ const { $event } = useNuxtApp();
                     icon="i-heroicons-plus"
                     color="primary"
                     variant="solid"
+                    @click="sendEvent('app:newNote')"
                     :label="i18n.t('app.sidebar.newNote')"
                 />
                 <UButton

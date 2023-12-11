@@ -26,40 +26,8 @@ THE SOFTWARE.
 -->
 
 <script setup lang="ts">
-const toast = useToast();
-const router = useRouter();
-const commandPaletteRef = ref();
-const { metaSymbol } = useShortcuts();
-const isNewFlowModalOpen = ref(false);
-const isCommandPaletteOpen = ref(false);
-const { $listen, $event } = useNuxtApp();
-
-defineShortcuts({
-    meta_k: {
-        usingInput: true,
-        handler: () => {
-            isCommandPaletteOpen.value = !isCommandPaletteOpen.value;
-        },
-    },
-    meta_shift_f: {
-        usingInput: true,
-        handler: () => {
-            isNewFlowModalOpen.value = !isNewFlowModalOpen.value;
-        },
-    },
-});
-
-function onSelect(option: any) {
-    if (option.click) {
-        option.click();
-    } else if (option.to) {
-        router.push(option.to);
-    } else if (option.href) {
-        window.open(option.href, "_blank");
-    }
-}
-
-const route = useRoute();
+const isNewNoteModalOpen = ref(false);
+const { $listen } = useNuxtApp();
 
 const pages = [
     {
@@ -72,15 +40,13 @@ const pages = [
     },
 ];
 
-const getHeaderTitle = (routeName: string): string => {
-    let title = "Home";
-    pages.forEach((page) => {
-        if (page.path === routeName) {
-            title = page.name;
-        }
-    });
-    return title;
-};
+$listen("app:newNote", () => {
+    isNewNoteModalOpen.value = !isNewNoteModalOpen.value;
+});
+
+$listen("app:noteCreated", () => {
+    isNewNoteModalOpen.value = false;
+});
 </script>
 
 <template>
@@ -96,5 +62,8 @@ const getHeaderTitle = (routeName: string): string => {
                 </div>
             </div>
         </div>
+        <UModal v-model="isNewNoteModalOpen">
+            <AppNoteNewForm />
+        </UModal>
     </div>
 </template>

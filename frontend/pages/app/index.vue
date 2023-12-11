@@ -51,7 +51,7 @@ async function getNotes() {
                 color: "red",
                 icon: "i-heroicons-exclamation-circle",
                 title: `Error`,
-                description: `Flows not found`,
+                description: `Notes not found`,
             });
         } else {
             return res._data;

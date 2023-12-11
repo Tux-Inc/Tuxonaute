@@ -59,9 +59,38 @@
             "notes": "Notes",
             "settings": "Settings"
         },
-        "preferences": {
-            "title": "Preferences",
-            "description": "Manage your preferences.",
+        "notes": {
+            "title": "Notes",
+            "description": "Manage your notes.",
+            "tooltip": {
+                "new": "New Note",
+                "edit": "Edit",
+                "delete": "Delete"
+            },
+            "boutons": {
+                "create": "Create",
+                "new": "New Note",
+                "edit": "Edit",
+                "delete": "Delete"
+            },
+            "labels": {
+                "title": "Title",
+                "content": "Content",
+                "createdAt": "Created at",
+                "updatedAt": "Updated at"
+            },
+            "placeholders": {
+                "title": "Title",
+                "content": "Content"
+            },
+            "messages": {
+                "success": "Your note has been updated successfully.",
+                "error": "An error occurred while updating your note. Please try again later."
+            }
+        },
+        "settings": {
+            "title": "Settings",
+            "description": "Manage your settings.",
             "labels": {
                 "language": "Language",
                 "darkMode": "Dark Mode"
@@ -71,8 +100,11 @@
                 "darkMode": "Dark Mode"
             },
             "messages": {
-                "success": "Your preferences have been updated successfully.",
-                "error": "An error occurred while updating your preferences. Please try again later."
+                "success": "Your settings have been updated successfully.",
+                "error": "An error occurred while updating your settings. Please try again later."
+            },
+            "profile": {
+                "title": "Profile"
             }
         }
     }

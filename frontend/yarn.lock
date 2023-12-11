@@ -606,6 +606,13 @@
   dependencies:
     "@iconify/types" "*"
 
+"@iconify-json/mdi@^1.1.60":
+  version "1.1.60"
+  resolved "https://registry.yarnpkg.com/@iconify-json/mdi/-/mdi-1.1.60.tgz#32e958a22d247b789f5df059a6887a3949469881"
+  integrity sha512-oDb+ilwHIccaX/iHEQxcsd9ULRXi14T8gVrx1XivTkMAmVLGzPD/u9GIFNngvF1P/D0xBx68l2COWwsLlker5Q==
+  dependencies:
+    "@iconify/types" "*"
+
 "@iconify/collections@^1.0.366":
   version "1.0.367"
   resolved "https://registry.yarnpkg.com/@iconify/collections/-/collections-1.0.367.tgz#12e7726d480ffaa529cd00ac1b7e4ab4643a52c9"
@@ -4213,6 +4220,11 @@ minizlib@^2.1.1, minizlib@^2.1.2:
   dependencies:
     minipass "^3.0.0"
     yallist "^4.0.0"
+
+mitt@^3.0.1:
+  version "3.0.1"
+  resolved "https://registry.yarnpkg.com/mitt/-/mitt-3.0.1.tgz#ea36cf0cc30403601ae074c8f77b7092cdab36d1"
+  integrity sha512-vKivATfr97l2/QBCYAkXYDbrIWPM2IIKEl7YPhjCvKlG3kE2gm+uBo6nEXK3M5/Ffh/FLpKExzOQ3JJoJGFKBw==
 
 mkdirp-classic@^0.5.2, mkdirp-classic@^0.5.3:
   version "0.5.3"

@@ -27,9 +27,8 @@ docker compose up -d
 or
 
 ```bash
-docker-compose up -d db
+docker-compose up -d
 ```
-
 
 ## Development Server
 
