@@ -1,0 +1,98 @@
+{
+    "locales": {
+        "en": "Anglais",
+        "fr": "Français",
+        "de": "Allemand",
+        "zh": "Chinois",
+        "pr": "Portugais"
+    },
+    "auth": {
+        "signIn": "Se connecter",
+        "signOut": "Créer un compte",
+        "goToApp": "Aller à l'application",
+        "button": {
+            "signIn": "Connexion",
+            "signUp": "Créer un compte",
+            "forgotPassword": "Mot de passe oublié",
+            "resetPassword": "Réinitialiser le mot de passe",
+            "next": "Suivant",
+            "back": "Retour"
+        },
+        "form": {
+            "email": "Email",
+            "password": "Mot de passe",
+            "confirmPassword": "Confirmation du mot de passe",
+            "confirmNewPassword": "Confirmation du nouveau mot de passe",
+            "name": "Nom complet"
+        },
+        "sso": {
+            "google": "Se connecter avec Google",
+            "github": "Se connecter avec GitHub",
+            "slack": "Se connecter avec Slack"
+        },
+        "password": {
+            "new": "Nouveau mot de passe",
+            "confirm": "Confirmation du nouveau mot de passe"
+        }
+    },
+    "settings": {
+        "title": "Settings",
+        "description": "Controller les paramètres de votre compte.",
+        "profile": {
+            "title": "Profile",
+            "description": "Gérer les informations de votre profile.",
+            "labels": {
+                "name": "Nom",
+                "email": "Email",
+                "avatar": "Avatar"
+            },
+            "placeholders": {
+                "name": "Nom",
+                "email": "Email",
+                "avatar": "Avatar"
+            },
+            "messages": {
+                "success": "Votre profile a été mis à jour avec succès.",
+                "error": "Une erreur s'est produite lors de la mise à jour de votre profile. Veuillez réessayer plus tard."
+            }
+        },
+        "account": {
+            "title": "Account",
+            "description": "Gérer les informations de votre profile.",
+            "labels": {
+                "name": "Nom",
+                "email": "Email",
+                "password": "Mot de passe",
+                "newPassword": "Nouveau mot de passe",
+                "confirmNewPassword": "Confirmation du nouveau mot de passe"
+            },
+            "placeholders": {
+                "name": "John Doe",
+                "email": "john.doe@tuxonaute.fr",
+                "password": "Mot de passe",
+                "newPassword": "Nouveau mot de passe",
+                "confirmNewPassword": "Confirmation du nouveau mot de passe"
+            },
+            "messages": {
+                "success": "Votre compte a été mis à jour avec succès.",
+                "error": "Une erreur s'est produite lors de la mise à jour de votre compte. Veuillez réessayer plus tard."
+            }
+        },
+        "preferences": {
+            "title": "Préférences",
+            "description": "Gérer vos préférences.",
+            "labels": {
+                "language": "Language",
+                "darkMode": "Dark Mode"
+            },
+            "placeholders": {
+                "language": "Language",
+                "darkMode": "Dark Mode"
+            },
+            "messages": {
+                "success": "Vos préférences ont été mises à jour avec succès.",
+                "error": "Une erreur s'est produite lors de la mise à jour de vos préférences. Veuillez réessayer plus tard."
+            }
+        }
+    }
+}

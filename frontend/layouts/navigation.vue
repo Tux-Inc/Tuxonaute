@@ -1,8 +1,8 @@
-/*
-File Name: nuxt.config.ts
+<!--
+File Name: index.client.vue
 Author: Alexandre Kévin De Freitas Martins
 Creation Date: 2023
-Description: This is the nuxt configuration file : https://nuxt.com/docs/api/configuration/nuxt-config
+Description: This file is the oauth page
 
 Copyright (c) 2023 Tux Inc.
 
@@ -23,18 +23,24 @@ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 THE SOFTWARE.
-*/
+-->
 
-export default defineNuxtConfig({
-    ssr: true,
-    devtools: { enabled: true },
-    modules: ["@nuxt/ui", "@nuxt/image", "@nuxtjs/device"],
-    devServer: {
-        port: 8080,
-    },
-    runtimeConfig: {
-        public: {
-            API_BASE_URL: process.env.API_BASE_URL || "http://localhost:3000",
-        },
-    },
-});
+<script setup lang="ts">
+const isOpen = ref(false);
+
+const setOpened = () => (isOpen.value = !isOpen.value);
+</script>
+
+<template>
+    <div class="antialiased relative min-h-screen bg-gray-50 dark:bg-base-dark">
+        <div>
+            <Navbar :isOpen="isOpen" @setOpened="setOpened" />
+        </div>
+        <div
+            class="min-h-[calc(100vh-var(--header-height))] mx-auto px-4 md:px-6 lg:px-8 max-w-7xl"
+        >
+            <slot />
+        </div>
+        <Footer />
+    </div>
+</template>
