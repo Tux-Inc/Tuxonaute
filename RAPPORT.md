@@ -3,7 +3,23 @@
 ## Introduction
 
 Bonjour,
+
 Fier de vous présenter mon projet de test technique pour le poste de développeur chez [Epseed](https://epseed.com).
+Je suis parti sur une stack technique que je connais bien et qui me permet de développer rapidement des applications web.
+J'ai utilisé NestJS pour le back-end et NuxtJS pour le front-end.
+Le back-end est une API REST qui permet de gérer des utilisateurs et des tâches.
+Le front-end est une application web qui permet de gérer les utilisateurs et les tâches.
+J'ai utilisé Docker et Docker-compose pour créer des environnements de développement et de production isolés.
+J'ai utilisé MariaDB comme base de données.
+J'ai utilisé TypeORM comme ORM, il permet de créer des entités et de les lier à une base de données de manière simple et rapide.
+Le Typescript est utilisé pour le back-end et le front-end, il permet de créer des applications web Node.js efficaces et évolutives, et il évite les erreurs de développement, car il est typé.
+J'ai utilisé Swagger pour documenter l'API, il permet de créer une documentation interactive et dynamique pour l'API, ce qui facilite grandement la compréhension et l'utilisation de l'API par d'autres développeurs.
+
+## Post Mortem
+
+Je suis satisfait du résultat, mais je pense que j'aurais pu faire mieux.
+J'ai passé beaucoup de temps à vouloir faire une application web qui soit la plus complète possible, mais je pense que j'aurais dû me concentrer sur les fonctionnalités demandées.
+Parallèlement, j'ai passé beaucoup de temps à essayer de faire fonctionner mon front-end avec Bun qui est un nouveau runtime pour NuxtJS, mais je n'ai pas réussi à ce que cela fonctionne parfaitement du à sa jeunesse.
 
 ## Technologies utilisées
 
