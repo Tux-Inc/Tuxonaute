@@ -40,8 +40,8 @@ import type { FormError, FormSubmitEvent } from "@nuxt/ui/dist/runtime/types";
 const state = ref({
     email: undefined,
     name: undefined,
-    password1: undefined,
-    password2: undefined,
+    password: undefined,
+    confirmPassword: undefined,
 });
 
 const isLoading = ref(false);
@@ -49,9 +49,8 @@ const validate = (state: any): FormError[] => {
     const errors = [];
     if (!state.email) errors.push({ path: "email", message: "Required" });
     if (!state.name) errors.push({ path: "name", message: "Required" });
-    if (!state.password1)
-        errors.push({ path: "password", message: "Required" });
-    if (!state.password2)
+    if (!state.password) errors.push({ path: "password", message: "Required" });
+    if (!state.confirmPassword)
         errors.push({ path: "confirmPassword", message: "Required" });
     return errors;
 };
@@ -62,6 +61,7 @@ const runtimeConfig = useRuntimeConfig();
 
 async function submit(event: FormSubmitEvent<any>) {
     isLoading.value = true;
+    console.log(event.data);
     const { error } = await useFetch(
         `${runtimeConfig.public.API_BASE_URL}/auth/sign-up`,
         { method: "POST", body: JSON.stringify(event.data) },
@@ -76,11 +76,18 @@ async function submit(event: FormSubmitEvent<any>) {
         });
     } else {
         isLoading.value = false;
+        // toast.add({
+        //     title: "Confirm Email",
+        //     icon: "i-heroicons-envelope",
+        //     color: "primary",
+        //     description: `An email has been sent to ${event.data.email} to confirm your email address.`,
+        //     timeout: 10000,
+        // });
         toast.add({
-            title: "Confirm Email",
-            icon: "i-heroicons-envelope",
-            color: "primary",
-            description: `An email has been sent to ${event.data.email} to confirm your email address.`,
+            title: "Account Created",
+            icon: "i-heroicons-check-circle",
+            color: "green",
+            description: `Your account has been created successfully.`,
             timeout: 10000,
         });
         await router.push("/auth/sign-in");
@@ -128,7 +135,7 @@ async function submit(event: FormSubmitEvent<any>) {
                     name="password"
                 >
                     <UInput
-                        v-model="state.password1"
+                        v-model="state.password"
                         type="password"
                         placeholder="********"
                     />
@@ -138,7 +145,7 @@ async function submit(event: FormSubmitEvent<any>) {
                     name="confirmPassword"
                 >
                     <UInput
-                        v-model="state.password2"
+                        v-model="state.confirmPassword"
                         type="password"
                         placeholder="********"
                     />
