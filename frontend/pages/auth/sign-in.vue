@@ -153,15 +153,15 @@ async function submit(event: FormSubmitEvent<any>) {
                     color="gray"
                     variant="solid"
                 />
-                <NuxtLink
+                <!-- <NuxtLink
                     class="flex items-center justify-center w-full"
                     to="/auth/forgot-password"
+                > -->
+                <span
+                    class="mx-auto text-center text-sm text-gray-500 dark:text-gray-400 hover:underline"
+                    >{{ i18n.t("auth.button.forgotPassword") }}</span
                 >
-                    <span
-                        class="mx-auto text-center text-sm text-gray-500 dark:text-gray-400 hover:underline"
-                        >{{ i18n.t("auth.button.forgotPassword") }}</span
-                    >
-                </NuxtLink>
+                <!-- </NuxtLink> -->
             </UForm>
         </UCard>
     </div>
