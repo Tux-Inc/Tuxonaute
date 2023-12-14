@@ -31,11 +31,13 @@ import { useColorMode } from "@vueuse/core";
 import type { IUserCookie } from "~/types/IUserCookie";
 
 const i18n = useI18n();
+const toast = useToast();
+const router = useRouter();
 const localesItems: any = [];
 const { $event } = useNuxtApp();
 const colorMode = useColorMode();
 const { metaSymbol } = useShortcuts();
-const userCookie = useCookie<IUserCookie>("user");
+const userCookie = useCookie<IUserCookie | null>("user");
 const availableLocales = computed(() => i18n.availableLocales);
 
 const isDark = computed({
@@ -97,18 +99,22 @@ const items = [
             label: "Sign out",
             icon: "i-heroicons-arrow-left-on-rectangle",
             to: "/",
+            click: () => {
+                userCookie.value = null;
+                toast.add({
+                    color: "green",
+                    icon: "i-heroicons-check",
+                    title: "Success",
+                    description: "You are now logged out",
+                });
+                router.push("/auth/sign-in");
+            },
         },
     ],
 ];
 
 function getUserImage() {
-    // try {
-    //     return `https://www.gravatar.com/avatar/${md5(
-    //         userCookie.value.user.email.trim().toLowerCase(),
-    //     )}`;
-    // } catch (error) {
     return "https://www.gravatar.com/avatar/feur";
-    // }
 }
 
 function getUserAlt() {
