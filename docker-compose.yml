@@ -28,7 +28,7 @@ services:
   # MariaDB
   db:
     image: mariadb
-    restart: always
+    restart: unless-stopped
     ports:
       - "3306:3306"
     environment:
@@ -42,7 +42,7 @@ services:
   # Adminer
   adminer:
     image: adminer
-    restart: always
+    restart: unless-stopped
     ports:
       - "8081:8080"
     networks:
@@ -52,7 +52,7 @@ services:
   api:
     container_name: tuxonaute-api
     image: node:latest
-    restart: always
+    restart: unless-stopped
     command: yarn start:dev
     working_dir: /app
     ports:
@@ -66,11 +66,12 @@ services:
       - tuxonaute-network
     env_file:
       - .env
+
   # Nuxt Frontend
   frontend:
     container_name: tuxonaute-frontend
     image: node:latest
-    restart: always
+    restart: unless-stopped
     command: yarn dev
     working_dir: /usr/src/app
     ports:
